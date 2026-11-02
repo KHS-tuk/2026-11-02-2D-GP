@@ -1,7 +1,8 @@
 from pico2d import *
 from ball import Ball
 from boy import Boy
-from grass import Grass
+from grass import Grass_front
+from grass import Grass_behind
 
 import game_world
 
@@ -29,11 +30,11 @@ def handle_events():
 def reset_world():
     global grass, boy
 
+    grass = Grass_behind()
+    game_world.add_object(grass)
+
     boy = Boy()
     game_world.add_object(boy, 1)
-
-    grass = Grass()
-    game_world.add_object(grass)
 
 
 def update_world():
